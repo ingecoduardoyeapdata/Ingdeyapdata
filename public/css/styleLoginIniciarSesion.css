@@ -1,0 +1,90 @@
+/* --- Reset y base --- */
+*{box-sizing:border-box}html,body{height:100%;margin:0;font-family:Inter,system-ui,Arial,sans-serif;color:#1b2b26}
+a{color:#115e3b;text-decoration:none}
+a:hover{text-decoration:underline}
+
+/* Fondo principal */
+.auth-body{min-height:100vh;display:flex;align-items:center;justify-content:center;background:#eaf4ee}
+.auth-bg{
+    position:fixed;inset:0;
+    background-image: url('/img/iniciologin.png');
+    background-size:cover;background-position:center;
+    filter:brightness(.7) saturate(.95);
+    transform: scale(1.03);
+    animation: bgFloat 30s linear infinite;
+    z-index:-2;
+}
+
+/* overlay suave para oscurecer y dar tono */
+.auth-bg::after{
+    content:"";position:absolute;inset:0;
+    background:linear-gradient(180deg, rgba(6,24,12,0.18), rgba(2,9,4,0.28));
+}
+
+/* contenedor centrado */
+.auth-main{display:flex;align-items:center;justify-content:center;padding:40px 20px;min-height:100vh}
+
+/* tarjeta */
+.auth-card{
+    width:100%;max-width:460px;background:rgba(255,255,255,0.95);
+    border-radius:18px;padding:34px 32px;box-shadow:0 10px 30px rgba(4,20,12,0.18);
+    border:1px solid rgba(13,34,20,0.05);
+    transform-origin:center;
+}
+
+/* animación de entrada */
+.animate-in{opacity:0;transform:translateY(18px) scale(.997);animation:fadeInUp .6s cubic-bezier(.2,.9,.2,1) forwards .08s}
+
+/* cabecera */
+.auth-header{text-align:center;margin-bottom:18px}
+.auth-logo{width:64px;height:auto;margin:0 auto 8px;display:block;opacity:.95}
+.auth-header h1{margin:0;font-size:1.6rem;color:#0f2c20}
+.auth-sub{margin:6px 0 0;color:#5b6a63;font-size:.95rem}
+
+/* form */
+.form-auth{display:block}
+.field{display:block;margin-bottom:14px}
+.field span{display:block;font-size:.9rem;color:#2b483b;margin-bottom:6px}
+.field input{
+    width:100%;padding:12px 14px;border-radius:10px;border:1px solid rgba(14,34,24,0.08);
+    background:rgba(250,253,250,0.9);font-size:1rem;transition:box-shadow .18s,transform .12s;
+}
+.field input:focus{outline:none;box-shadow:0 6px 18px rgba(11,46,28,0.08);transform:translateY(-1px)}
+
+/* checkbox line */
+.checkbox{display:flex;align-items:center;gap:10px;margin-bottom:12px;color:#3b4f44;font-size:.95rem}
+.checkbox input{width:16px;height:16px}
+
+/* acciones */
+.actions{display:flex;align-items:center;justify-content:space-between;margin-top:10px}
+.link-small{font-size:.88rem;color:#2b6b45}
+.btn-primary{
+    background:linear-gradient(180deg,#24794f,#1e5f3e);color:white;padding:12px 18px;border-radius:10px;border:none;
+    box-shadow:0 6px 18px rgba(18,57,38,0.12);cursor:pointer;font-weight:600
+}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 12px 30px rgba(13,45,30,0.14)}
+.muted{margin-top:14px;font-size:.92rem;color:#55665d;text-align:center}
+
+/* errores */
+.error{display:block;margin-top:6px;font-size:.88rem;color:#d64545}
+
+/* pie */
+.auth-footer{margin-top:14px;text-align:center;color:#74857a;font-size:.85rem}
+
+/* animaciones */
+@keyframes fadeInUp{
+    from{opacity:0;transform:translateY(18px) scale(.997)}
+    to{opacity:1;transform:none}
+}
+@keyframes bgFloat{
+    0%{transform:scale(1.03) translateY(0)}
+    50%{transform:scale(1.04) translateY(-10px)}
+    100%{transform:scale(1.03) translateY(0)}
+}
+
+/* responsive */
+@media (max-width:640px){
+    .auth-card{padding:22px;border-radius:14px;margin:16px}
+    .auth-header h1{font-size:1.4rem}
+    .auth-main{padding:20px}
+}
