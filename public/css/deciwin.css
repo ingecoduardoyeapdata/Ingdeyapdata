@@ -1,0 +1,105 @@
+/* public/css/deciwin.css
+   Estilos inspirados en la naturaleza para deciWin.
+   - Paleta: verdes suaves, crema, sombras suaves.
+   - Responsive: mobile-first.
+*/
+
+/* ---------- Reset básico ---------- */
+:root{
+  --green-600:#1f7a4f;
+  --green-700:#165b3f;
+  --muted:#6a776f;
+  --bg:#f4f7f3;
+  --card:#ffffff;
+  --glass: rgba(255,255,255,0.85);
+  --accent:#2f8a53;
+  --radius:14px;
+  --container:1100px;
+}
+*{box-sizing:border-box}
+html,body{height:100%;margin:0;font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial; background:var(--bg); color:#0f1f19;-webkit-font-smoothing:antialiased}
+
+/* ---------- Contenedores ---------- */
+.dw-container{max-width:var(--container);margin:0 auto;padding:0 18px}
+
+/* ---------- Header / nav ---------- */
+.dw-header{position:sticky;top:0;z-index:40;background:rgba(255,255,255,0.6);backdrop-filter: blur(6px);box-shadow:0 1px 0 rgba(10,20,14,0.04)}
+.dw-header-inner{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:12px 0}
+.dw-logo{display:flex;align-items:center;gap:10px;text-decoration:none;color:inherit}
+.dw-logo img{width:44px;height:auto;border-radius:8px}
+.dw-brand{font-weight:700;font-size:1.1rem;color:var(--green-700)}
+.dw-nav{display:flex;gap:18px;align-items:center}
+.dw-nav-link{color:var(--muted);text-decoration:none;padding:8px;border-radius:8px}
+.dw-nav-link:hover{color:var(--green-700);background:rgba(34,110,66,0.04)}
+
+/* Actions */
+.dw-actions{display:flex;align-items:center;gap:12px}
+.dw-link{color:var(--muted);text-decoration:none}
+.dw-btn-outline{padding:8px 12px;border-radius:10px;border:1px solid rgba(20,70,40,0.06);background:transparent;color:var(--green-700);text-decoration:none}
+.dw-btn-primary{background:linear-gradient(180deg,var(--green-600),var(--green-700));color:#fff;padding:10px 14px;border-radius:10px;text-decoration:none;font-weight:600;display:inline-block}
+
+/* Mobile toggle */
+.dw-mobile-btn{display:none;background:none;border:0;padding:8px;border-radius:8px}
+.dw-hamburger{width:22px;height:2px;background-color:var(--green-700);display:block;position:relative}
+.dw-hamburger::before,.dw-hamburger::after{content:"";position:absolute;left:0;right:0;height:2px;background:var(--green-700);transition:transform .22s}
+.dw-hamburger::before{top:-6px}
+.dw-hamburger::after{top:6px}
+.dw-hamburger.open{background:transparent}
+.dw-hamburger.open::before{transform:translateY(6px) rotate(45deg)}
+.dw-hamburger.open::after{transform:translateY(-6px) rotate(-45deg)}
+
+/* Mobile nav (hidden desktop) */
+.dw-mobile{display:none;padding:12px;background:var(--card);border-top:1px solid rgba(0,0,0,0.04)}
+.dw-mobile-link{display:block;padding:8px 0;color:var(--muted);text-decoration:none}
+
+/* ---------- Hero ---------- */
+.dw-hero{padding:46px 0;background-image: linear-gradient(180deg, rgba(255,255,255,0.45), rgba(255,255,255,0.85)), url('/img/bg.jpg');background-size:cover;background-position:center;border-bottom:1px solid rgba(10,20,14,0.03)}
+.dw-hero-inner{display:flex;gap:26px;align-items:center;justify-content:space-between;padding:28px 0}
+.dw-hero-left{flex:1;max-width:640px}
+.dw-hero-title{font-size:2rem;margin:0 0 12px;color:#082318}
+.dw-hero-lead{margin:0 0 18px;color:var(--muted)}
+.dw-hero-cta{display:flex;gap:12px;align-items:center}
+
+/* Hero right card */
+.dw-card{background:var(--glass);border-radius:12px;overflow:hidden;box-shadow:0 12px 40px rgba(8,28,18,0.06);border:1px solid rgba(12,24,16,0.06)}
+.dw-card img{width:100%;height:160px;object-fit:cover}
+.dw-card-body{padding:14px}
+
+/* ---------- Sections ---------- */
+.dw-section{padding:36px 0}
+.dw-section-alt{background:linear-gradient(180deg, rgba(250,252,250,1), rgba(245,249,246,1))}
+.dw-section-title{font-size:1.3rem;margin:0 0 18px}
+
+/* Grid helpers */
+.dw-grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.dw-step{background:var(--card);padding:20px;border-radius:12px;text-align:center;box-shadow:0 8px 22px rgba(7,20,12,0.04)}
+.dw-step-icon{font-size:28px;margin-bottom:10px}
+
+/* Card actions */
+.dw-btn-outline{display:inline-block;padding:8px 12px;border-radius:10px;border:1px solid rgba(20,70,40,0.06);text-decoration:none;color:var(--green-700)}
+.dw-btn-primary{display:inline-block;padding:8px 12px;border-radius:10px;background:linear-gradient(180deg,var(--green-600),var(--green-700));color:#fff;text-decoration:none}
+
+/* ---------- Utilities ---------- */
+.dw-container{padding-left:18px;padding-right:18px}
+.muted{color:var(--muted);font-size:0.95rem}
+
+/* Footer */
+.dw-footer{padding:28px 0;border-top:1px solid rgba(10,20,14,0.03);background:transparent}
+.dw-footer-grid{display:flex;gap:28px;justify-content:space-between;align-items:flex-start}
+.dw-footer-bottom{text-align:center;margin-top:18px;color:var(--muted)}
+
+/* Responsive adjustments */
+@media (max-width: 980px){
+  .dw-grid-3{grid-template-columns:repeat(2,1fr)}
+  .dw-hero-inner{flex-direction:column;gap:18px}
+  .dw-card img{height:200px}
+}
+@media (max-width: 640px){
+  .dw-header-inner{padding:10px 8px}
+  .dw-nav{display:none}
+  .dw-mobile-btn{display:block}
+  .dw-mobile{display:block}
+  .dw-grid-3{grid-template-columns:1fr}
+  .dw-hero-title{font-size:1.5rem}
+  .dw-card img{height:160px}
+}
